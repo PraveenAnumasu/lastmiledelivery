@@ -1,0 +1,14 @@
+{
+  "name": "distanceservice",
+  "version": "1.0.0",
+  "description": "fetch distance from google",
+  "main": "distance.js",
+  "scripts": {
+    "test": "node distance1.js"
+  },
+  "author": "Sabyasachi Chatterjee",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
