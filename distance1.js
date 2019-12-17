@@ -20,7 +20,7 @@ var options = {
   host: 'maps.googleapis.com',
   port: 443,
  /// path: '/maps/api/distancematrix/json?units=imperial&origins=Burlington&destinations=Dallas&key=AIzaSyCOFsgPErRIT4R3cug5x9vwqwuNQaewPV0',
-  path: '/maps/api/distancematrix/json?units=imperial&origins='+req1.body.origin+'&destinations='+req1.body.destination+'&key=AIzaSyCOFsgPErRIT4R3cug5x9vwqwuNQaewPV0',
+  path: '/maps/api/distancematrix/json?units=imperial&origins='+req1.body.origin+'&destinations='+req1.body.destination+'&key=',
   method: 'GET'
 }
 
