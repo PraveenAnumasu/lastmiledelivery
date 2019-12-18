@@ -1,6 +1,7 @@
 'use strict';
 
-//var bodyParser = require('body-parser');
+var util = require('util');
+var bodyParser = require('body-parser');
 var https = require('https');
 var express = require('express');
 var app = express();
@@ -11,26 +12,38 @@ var destination='';
 var time='';
 var distance='';
 var globaloptions='';
-
-app.post('/', function(req1, res1) {
+app.use(bodyParser.json());
+app.post('/distance', function(request, response) {
+app.use(bodyParser.json());
 //console.log('Printing Origin '+req1.body.origin);
 //console.log('Printing Destination '+req1.body.destination);
-console.log(req1);
+//console.log(request);
+//console.log('Request :'+request.object);
+//console.log('Response :'+response.object);
+var origin1 = request.body.origin;
+//origin1=origin1.to_string();
+//console.log(origin1);
+
+var destination1 = request.body.destination;
+//destination1=destination1.to_string();
+//console.log(destination1);
+
 var options = {
   host: 'maps.googleapis.com',
   port: 443,
- /// path: '/maps/api/distancematrix/json?units=imperial&origins=Burlington&destinations=Dallas&key=AIzaSyCOFsgPErRIT4R3cug5x9vwqwuNQaewPV0',
-  path: '/maps/api/distancematrix/json?units=imperial&origins='+req1.body.origin+'&destinations='+req1.body.destination+'&key=',
+ /// path: '/maps/api/distancematrix/json?units=imperial&origins=Burlington&destinations=Dallas&key=AIzaSyD3PEmTi0_Y0srMWiuZ0fCQ93Bo4ph120M',
+  path: '/maps/api/distancematrix/json?units=imperial&origins='+origin1+'&destinations='+destination1+'&key=AIzaSyD3PEmTi0_YOsrMWiuZOfCQ93Bo4phl2OM',
   method: 'GET'
 }
 
+//console.log(options.path);
 globaloptions = options;
 
 //master(req1, res1);
 getgoogledata()
 .then(function() {
-console.log('***********');
-constructrestresponse(req1, res1);
+//console.log('***********');
+constructrestresponse(request, response);
 });
 
 });
@@ -63,8 +76,8 @@ function getgoogledata(){
     destination = dataparse.destination_addresses;
     distance = dataparse.rows[0].elements[0].distance.text;
     time = dataparse.rows[0].elements[0].duration.text;
-    console.log('inside inner res' + origin);
-    console.log('inside inner res' + distance);
+   // console.log('inside inner res' + origin);
+  //  console.log('inside inner res' + distance);
    // return(resolve);
    resolve();
 
@@ -76,15 +89,13 @@ function getgoogledata(){
 }
 
 
-function constructrestresponse(req1, res1) {
- console.log('outside inner res' + origin);
- console.log('outside inner res' + distance);
- res1.setHeader('Content-Type' , 'application/json');
- res1.body = {"Origin" : origin,
+function constructrestresponse(request, response) {
+ //console.log('outside inner res' + origin);
+ //console.log('outside inner res' + distance);
+ response.setHeader('Content-Type' , 'application/json');
+ response.body = {"Origin" : origin,
                "Destination" : destination,
                "Distance" : distance,
                "Time" : time};
- res1.end(JSON.stringify(res1.body));
+ response.end(JSON.stringify(response.body));
 }
-  
-
