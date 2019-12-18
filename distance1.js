@@ -31,8 +31,8 @@ var destination1 = request.body.destination;
 var options = {
   host: 'maps.googleapis.com',
   port: 443,
- /// path: '/maps/api/distancematrix/json?units=imperial&origins=Burlington&destinations=Dallas&key=AIzaSyD3PEmTi0_Y0srMWiuZ0fCQ93Bo4ph120M',
-  path: '/maps/api/distancematrix/json?units=imperial&origins='+origin1+'&destinations='+destination1+'&key=',
+ /// path: '/maps/api/distancematrix/json?units=imperial&origins=Burlington&destinations=Dallas&key=',
+  path: '/maps/api/distancematrix/json?units=imperial&origins='+origin1+'&destinations='+destination1+'&key=AIzaSyD3PEmTi0_YOsrMWiuZOfCQ93Bo4phl2OM',
   method: 'GET'
 }
 
@@ -48,7 +48,7 @@ constructrestresponse(request, response);
 
 });
 
-var server = app.listen (3000, function(){
+var server = app.listen (8080, function(){
 console.log('Distance Service is listening');
 });
 
