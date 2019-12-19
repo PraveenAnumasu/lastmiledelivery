@@ -98,4 +98,6 @@ function constructrestresponse(request, response) {
                "Distance" : distance,
                "Time" : time};
  response.end(JSON.stringify(response.body));
+  data = '';
+  dataparse = '';
 }
