@@ -2,7 +2,7 @@
   "name": "distanceservice",
   "version": "1.0.0",
   "description": "fetch distance from google",
-  "main": "distance.js",
+  "main": "distance1.js",
   "scripts": {
     "test": "node distance1.js"
   },
