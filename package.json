@@ -4,6 +4,7 @@
   "description": "fetch distance from google",
   "main": "distance1.js",
   "scripts": {
+    "start": "node distance1.js",
     "test": "node distance1.js"
   },
   "author": "Sabyasachi Chatterjee",
