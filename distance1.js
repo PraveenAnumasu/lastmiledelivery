@@ -32,7 +32,7 @@ var options = {
   host: 'maps.googleapis.com',
   port: 443,
  /// path: '/maps/api/distancematrix/json?units=imperial&origins=Burlington&destinations=Dallas&key=',
-  path: '/maps/api/distancematrix/json?units=imperial&origins='+origin1+'&destinations='+destination1+'&key=AIzaSyD3PEmTi0_YOsrMWiuZOfCQ93Bo4phl2OM',
+  path: '/maps/api/distancematrix/json?units=imperial&origins='+origin1+'&destinations='+destination1+'&key=$KEY',
   method: 'GET'
 }
 
